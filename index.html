@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gửi Bé Thỏ 💌 Chúc mừng 20/10</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Be+Vietnam+Pro:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg1:#ffe3ec;--bg2:#ffc2d6;--ink:#5a1a33;--soft:#9b4a68;
+  --env:#ff8fb1;--env2:#ff6f9c;--flap:#ff7aa5;--paper:#fffaf5;--line:#ffd3e0;--accent:#e63a6e;--shadow:rgba(150,30,70,.28);
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg1:#2a0f1c;--bg2:#4a1730;--ink:#ffe3ec;--soft:#ffb3cb;--env:#d94f7e;--env2:#b83a66;--flap:#c9456f;--paper:#3a1626;--line:#6a2a47;--accent:#ff7aa5;--shadow:rgba(0,0,0,.5)}
+}
+:root[data-theme="dark"]{--bg1:#2a0f1c;--bg2:#4a1730;--ink:#ffe3ec;--soft:#ffb3cb;--env:#d94f7e;--env2:#b83a66;--flap:#c9456f;--paper:#3a1626;--line:#6a2a47;--accent:#ff7aa5;--shadow:rgba(0,0,0,.5)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;margin:0}
+body{background:radial-gradient(circle at 50% 20%,var(--bg1),var(--bg2));color:var(--ink);font-family:"Be Vietnam Pro",system-ui,sans-serif;overflow:hidden;display:flex;align-items:center;justify-content:center;flex-direction:column;position:relative}
+.hint{font-family:"Dancing Script",cursive;font-size:clamp(22px,6vw,30px);margin:0 0 28px;text-align:center;transition:opacity .5s;padding:0 16px}
+.hint small{display:block;font-family:"Be Vietnam Pro",sans-serif;font-size:13px;color:var(--soft);margin-top:6px}
+.stage{perspective:900px}
+.env{position:relative;width:min(84vw,340px);aspect-ratio:3/2;cursor:pointer;transition:transform .8s,opacity .8s;filter:drop-shadow(0 18px 24px var(--shadow));animation:float 3.2s ease-in-out infinite}
+.env.open{animation:none}
+@keyframes float{50%{transform:translateY(-8px) rotate(-1deg)}}
+.back{position:absolute;inset:0;background:var(--env2);border-radius:8px}
+.letter{position:absolute;left:7%;right:7%;top:8%;bottom:6%;background:var(--paper);border-radius:6px;z-index:2;transition:transform .9s cubic-bezier(.3,1.2,.5,1);display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:34px}
+.env.rise .letter{transform:translateY(-62%)}
+.front{position:absolute;inset:0;background:linear-gradient(160deg,var(--env),var(--env2));clip-path:polygon(0 0,50% 56%,100% 0,100% 100%,0 100%);z-index:3;border-radius:8px}
+.flap{position:absolute;left:0;right:0;top:0;height:57%;background:linear-gradient(180deg,var(--flap),var(--env));clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;transition:transform .7s ease;z-index:5;border-radius:8px 8px 0 0}
+.env.open .flap{transform:rotateX(180deg)}
+.env.flapback .flap{z-index:1}
+.seal{position:absolute;left:50%;top:57%;transform:translate(-50%,-50%);z-index:6;width:54px;height:54px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ff5d8a,#c4163f);color:#fff;display:flex;align-items:center;justify-content:center;font-size:24px;box-shadow:0 4px 10px rgba(0,0,0,.3);animation:beat 1.2s infinite;transition:opacity .3s}
+.env.open .seal{opacity:0;animation:none}
+@keyframes beat{0%,100%{transform:translate(-50%,-50%) scale(1)}50%{transform:translate(-50%,-50%) scale(1.14)}}
+.env.gone{opacity:0;transform:translateY(60px) scale(.8);pointer-events:none}
+.hint.gone{opacity:0}
+.card{position:fixed;left:50%;top:50%;width:min(90vw,400px);max-height:88dvh;overflow-y:auto;transform:translate(-50%,-46%) scale(.85);opacity:0;pointer-events:none;background:var(--paper);border:2px solid var(--line);border-radius:20px;padding:26px 22px 20px;text-align:center;box-shadow:0 24px 50px var(--shadow);transition:all .8s cubic-bezier(.2,1.1,.4,1);z-index:20}
+.card.show{opacity:1;transform:translate(-50%,-50%) scale(1);pointer-events:auto}
+.card .to{font-family:"Dancing Script",cursive;font-size:clamp(30px,9vw,40px);color:var(--accent);margin:0 0 4px}
+.card .date{font-weight:500;letter-spacing:.06em;font-size:14px;color:var(--soft);margin:0 0 14px}
+.card p.msg{font-size:15.5px;line-height:1.7;margin:0 0 12px}
+.card .big{font-family:"Dancing Script",cursive;font-size:clamp(28px,8.5vw,36px);color:var(--accent);margin:10px 0 2px;line-height:1.2}
+.card .from{font-family:"Dancing Script",cursive;font-size:24px;margin:8px 0 16px}
+.l{opacity:0;transform:translateY(12px)}
+.card.show .l{animation:in .7s forwards;animation-delay:calc(var(--i)*.55s + .5s)}
+@keyframes in{to{opacity:1;transform:none}}
+.btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.btn{border:0;border-radius:999px;padding:11px 18px;font:500 14px "Be Vietnam Pro",sans-serif;cursor:pointer;background:var(--accent);color:#fff}
+.btn.alt{background:transparent;color:var(--accent);border:1.5px solid var(--accent)}
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);background:var(--ink);color:var(--bg1);padding:10px 16px;border-radius:999px;font-size:13px;opacity:0;transition:.3s;z-index:40;pointer-events:none;white-space:nowrap}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.heart{position:fixed;bottom:-30px;z-index:1;pointer-events:none;animation:up linear forwards;opacity:.7}
+@keyframes up{to{transform:translateY(-110vh) translateX(var(--dx)) rotate(var(--r));opacity:0}}
+#fx{position:fixed;inset:0;pointer-events:none;z-index:30}
+.star{position:fixed;z-index:0;width:var(--s);height:var(--s);border-radius:50%;background:#fff;box-shadow:0 0 8px 2px rgba(255,255,255,.9),0 0 16px 4px var(--accent);animation:tw var(--d) ease-in-out infinite;pointer-events:none;opacity:0}
+@keyframes tw{0%,100%{opacity:0;transform:scale(.4)}50%{opacity:.9;transform:scale(1)}}
+.env{filter:drop-shadow(0 18px 24px var(--shadow)) drop-shadow(0 0 22px rgba(255,120,170,.6))}
+.glow{position:fixed;left:50%;top:50%;width:20px;height:20px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.95),rgba(255,140,180,.5) 40%,transparent 70%);z-index:15;pointer-events:none;opacity:0}
+.glow.go{animation:flash 1.4s ease-out}
+@keyframes flash{0%{opacity:1;transform:translate(-50%,-50%) scale(0)}100%{opacity:0;transform:translate(-50%,-50%) scale(60)}}
+.card.show{animation:cglow 3s ease-in-out infinite}
+@keyframes cglow{0%,100%{box-shadow:0 24px 50px var(--shadow),0 0 30px rgba(255,120,170,.45)}50%{box-shadow:0 24px 50px var(--shadow),0 0 70px rgba(255,120,170,.85)}}
+.card .big{background:linear-gradient(90deg,var(--accent),#ffb347,#fff,var(--accent));background-size:250% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.card.show .big.l{animation:in .7s calc(var(--i)*.55s + .5s) forwards,shine 3s linear infinite}
+@keyframes shine{to{background-position:-250% 0}}
+.gift .bloom{display:flex;justify-content:center;align-items:flex-end;margin:2px 0 6px}
+.card.gift{width:min(94vw,440px)}
+.bun{width:36%;height:auto;margin-left:-6%;transform-origin:50% 100%;transform:scale(0)}
+.gift.show .bun{animation:pop .8s 2.5s cubic-bezier(.3,1.6,.5,1) forwards,bob 2.4s ease-in-out 3.5s infinite}
+@keyframes bob{0%,100%{transform:scale(1) translateY(0)}50%{transform:scale(1) translateY(-5px)}}
+.ear{transform-box:fill-box;transform-origin:50% 100%;animation:wig 3.2s ease-in-out infinite}
+@keyframes wig{0%,88%,100%{transform:rotate(0)}94%{transform:rotate(-7deg)}}
+.bheart{transform-box:fill-box;transform-origin:50% 50%;animation:beat2 1.2s ease-in-out infinite}
+@keyframes beat2{50%{transform:scale(1.18)}}
+@media (prefers-reduced-motion:reduce){.gift .bun{transform:none!important;animation:none!important}.ear,.bheart{animation:none}}
+.sway{transform-origin:50% 100%}
+.gift.show .sway{animation:sway 4s ease-in-out 3s infinite}
+@keyframes sway{50%{transform:rotate(2.5deg)}}
+.stem{fill:none;stroke:#3fa862;stroke-width:5;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1}
+.gift.show .stem{animation:grow 1.2s .4s forwards}
+@keyframes grow{to{stroke-dashoffset:0}}
+.leaf{fill:#52b96f;transform-box:fill-box;transform:scale(0)}
+.lf1{transform-origin:100% 100%}.lf2{transform-origin:0% 100%}
+.gift.show .lf1{animation:pop .6s 1.1s forwards}
+.gift.show .lf2{animation:pop .6s 1.3s forwards}
+@keyframes pop{to{transform:scale(1)}}
+.pt{fill:var(--accent);transform:rotate(var(--a)) scale(0)}
+.pt2{fill:#ffb3cb}
+.gift.show .pt{animation:bloom .8s calc(1.4s + var(--k)*.12s) cubic-bezier(.3,1.5,.5,1) forwards}
+@keyframes bloom{to{transform:rotate(var(--a)) scale(1)}}
+.ctr{fill:#ffc94d;transform:scale(0)}
+.wrap{transform:scale(0)}
+.rl{transform:scale(0)}
+.gift.show .rl{animation:pop .7s 1s cubic-bezier(.3,1.5,.5,1) forwards}
+.dot{fill:#fff;stroke:#ffd3e0;stroke-width:.6;transform-box:fill-box;transform-origin:50% 50%;transform:scale(0)}
+.gift.show .dot{animation:pop .5s forwards}
+.gift.show .wrap{animation:pop .7s 1s forwards}
+.gift.show .ctr{animation:pop .6s 2.4s cubic-bezier(.3,1.6,.5,1) forwards}
+@media (prefers-reduced-motion:reduce){.gift .pt{transform:rotate(var(--a)) scale(1)!important;animation:none!important}.gift .leaf,.gift .ctr,.gift .wrap,.gift .rl,.gift .dot{transform:scale(1)!important;animation:none!important}.gift .stem{stroke-dashoffset:0!important;animation:none!important}}
+.sp{position:fixed;pointer-events:none;z-index:35;font-size:14px;transform:translate(-50%,-50%);animation:spk .9s forwards}
+@keyframes spk{to{transform:translate(calc(-50% + var(--x)),calc(-50% + var(--y))) scale(.2);opacity:0}}
+@media (prefers-reduced-motion:reduce){.env{animation:none}.seal{animation:none}.star,.sp,.card.show{display:none;animation:none}.card.show{display:block}}
+</style>
+</head>
+<body>
+<p class="hint" id="hint">Có một bí mật gửi đến Bé Thỏ 💌<small>Chạm vào phong bì để mở nhé</small></p>
+<div class="stage">
+  <div class="env" id="env" role="button" tabindex="0" aria-label="Mở phong bì">
+    <div class="back"></div>
+    <div class="letter">💖</div>
+    <div class="front"></div>
+    <div class="flap"></div>
+    <div class="seal">♥</div>
+  </div>
+</div>
+
+<div class="card" id="card">
+  <h1 class="to l" style="--i:0">Gửi Bé Thỏ của anh,</h1>
+  <p class="date l" style="--i:1">CHÚC MỪNG 20/10 💐</p>
+  <p class="msg l" style="--i:2">Cảm ơn em đã đến bên anh và làm những ngày bình thường trở nên thật đáng yêu.</p>
+  <p class="msg l" style="--i:3">Anh có thể hơi lì, hơi cứng đầu, nhưng có một điều anh chưa bao giờ lì: đó là yêu em.</p>
+  <p class="msg l" style="--i:4">Mong em luôn cười thật tươi, được yêu thương thật nhiều và mãi là cô gái hạnh phúc nhất.</p>
+  <p class="big l" style="--i:5">Anh yêu em nhiều lắm! ❤️</p>
+  <p class="from l" style="--i:6">— Anh Ny Hơi Lì</p>
+  <div class="btns l" style="--i:7">
+    <button class="btn" id="giftbtn">Nhận quà 🎁</button>
+    <button class="btn alt" id="share">Chia sẻ 💌</button>
+    <button class="btn alt" id="replay">Xem lại</button>
+  </div>
+</div>
+<div class="card gift" id="gift">
+  <h2 class="to l" style="--i:0">Quà dành cho Bé Thỏ 🎁</h2>
+  <div class="bloom">
+    <div id="bq" style="width:66%;max-width:290px"></div>
+    <svg class="bun" viewBox="0 0 120 170" aria-label="Thỏ bông">
+      <g transform="rotate(-10 44 40)"><g class="ear"><ellipse cx="44" cy="30" rx="12" ry="30" fill="#fff5f8" stroke="#ffd3e0" stroke-width="1.5"/><ellipse cx="44" cy="33" rx="6" ry="21" fill="#ffc2d6"/></g></g>
+      <g transform="rotate(10 76 40)"><g class="ear" style="animation-delay:.5s"><ellipse cx="76" cy="30" rx="12" ry="30" fill="#fff5f8" stroke="#ffd3e0" stroke-width="1.5"/><ellipse cx="76" cy="33" rx="6" ry="21" fill="#ffc2d6"/></g></g>
+      <ellipse cx="60" cy="130" rx="34" ry="32" fill="#fff5f8" stroke="#ffd3e0" stroke-width="1.5"/>
+      <ellipse cx="60" cy="135" rx="20" ry="22" fill="#ffe3ec"/>
+      <ellipse cx="38" cy="160" rx="16" ry="9" fill="#fff5f8" stroke="#ffd3e0" stroke-width="1.5"/><ellipse cx="82" cy="160" rx="16" ry="9" fill="#fff5f8" stroke="#ffd3e0" stroke-width="1.5"/>
+      <ellipse cx="38" cy="162" rx="7" ry="4" fill="#ffc2d6"/><ellipse cx="82" cy="162" rx="7" ry="4" fill="#ffc2d6"/>
+      <ellipse cx="60" cy="80" rx="38" ry="33" fill="#fff5f8" stroke="#ffd3e0" stroke-width="1.5"/>
+      <circle cx="46" cy="80" r="4.5" fill="#3a1626"/><circle cx="74" cy="80" r="4.5" fill="#3a1626"/>
+      <circle cx="47.5" cy="78.5" r="1.6" fill="#fff"/><circle cx="75.5" cy="78.5" r="1.6" fill="#fff"/>
+      <ellipse cx="36" cy="90" rx="7" ry="4.5" fill="#ff9ec0" opacity=".65"/><ellipse cx="84" cy="90" rx="7" ry="4.5" fill="#ff9ec0" opacity=".65"/>
+      <ellipse cx="60" cy="87" rx="4" ry="3" fill="#ff7aa5"/>
+      <path d="M60 90 L60 94 M60 94 Q55 99 51 94 M60 94 Q65 99 69 94" stroke="#a04a68" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+      <path d="M60 113 L46 106 L46 120Z" fill="#ff7aa5"/><path d="M60 113 L74 106 L74 120Z" fill="#ff7aa5"/><circle cx="60" cy="113" r="4" fill="#e63a6e"/>
+      <path class="bheart" d="M60 146 C42 132 47 117 56 119 C59 120 60 123 60 123 C60 123 61 120 64 119 C73 117 78 132 60 146Z" fill="#e63a6e"/>
+      <ellipse cx="35" cy="130" rx="9" ry="14" fill="#fff5f8" stroke="#ffd3e0" stroke-width="1.5" transform="rotate(28 35 130)"/><ellipse cx="85" cy="130" rx="9" ry="14" fill="#fff5f8" stroke="#ffd3e0" stroke-width="1.5" transform="rotate(-28 85 130)"/>
+    </svg>
+  </div>
+  <p class="msg l" style="--i:6">Cho a gửi tình cảm to bự này nhé em 😘</p>
+  <p class="from l" style="--i:7">— Anh Ny Hơi Lì</p>
+  <div class="btns l" style="--i:8">
+    <button class="btn" id="gshare">Chia sẻ 💌</button>
+    <button class="btn alt" id="greplay">Xem lại từ đầu</button>
+  </div>
+</div>
+<canvas id="fx"></canvas>
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+  var env=document.getElementById('env'),card=document.getElementById('card'),hint=document.getElementById('hint');
+  var cv=document.getElementById('fx'),cx=cv.getContext('2d'),parts=[],running=false,opened=false,timers=[];
+  var EM=['❤','💖','💗','🌸','💕','🌷'];
+
+  function toast(t){var e=document.getElementById('toast');e.textContent=t;e.classList.add('show');setTimeout(function(){e.classList.remove('show')},2200)}
+
+  function spawnHeart(){
+    var h=document.createElement('span');h.className='heart';h.textContent=EM[Math.floor(Math.random()*EM.length)];
+    h.style.left=Math.random()*100+'vw';h.style.fontSize=(14+Math.random()*20)+'px';
+    h.style.setProperty('--dx',(Math.random()*80-40)+'px');h.style.setProperty('--r',(Math.random()*60-30)+'deg');
+    h.style.animationDuration=(6+Math.random()*6)+'s';
+    h.addEventListener('animationend',function(){h.remove()});document.body.appendChild(h);
+  }
+  setInterval(function(){if(document.querySelectorAll('.heart').length<22)spawnHeart()},700);
+
+  function size(){cv.width=innerWidth*devicePixelRatio;cv.height=innerHeight*devicePixelRatio}
+  size();addEventListener('resize',size);
+  function burst(){
+    var cols=['#ff5d8a','#ffd166','#ffffff','#e63a6e','#ffb3cb','#ffcf5c'],W=cv.width,H=cv.height,d=devicePixelRatio;
+    for(var i=0;i<120;i++){
+      var a=Math.random()*Math.PI*2,s=(4+Math.random()*9)*d;
+      parts.push({x:W/2,y:H*.45,vx:Math.cos(a)*s,vy:Math.sin(a)*s-5*d,g:.22*d,w:(5+Math.random()*6)*d,h:(3+Math.random()*5)*d,r:Math.random()*6,vr:Math.random()*.4-.2,c:cols[i%cols.length],life:140+Math.random()*60});
+    }
+    if(!running){running=true;requestAnimationFrame(tick)}
+  }
+  function tick(){
+    cx.clearRect(0,0,cv.width,cv.height);
+    parts=parts.filter(function(p){return p.life>0});
+    parts.forEach(function(p){
+      p.x+=p.vx;p.y+=p.vy;p.vy+=p.g;p.vx*=.99;p.r+=p.vr;p.life--;
+      cx.save();cx.globalAlpha=Math.min(1,p.life/40);cx.translate(p.x,p.y);cx.rotate(p.r);cx.fillStyle=p.c;if(p.t==='s'){cx.shadowColor=p.c;cx.shadowBlur=12*devicePixelRatio;cx.beginPath();cx.arc(0,0,p.w/3,0,6.3);cx.fill()}else if(p.t==='p'){p.x+=Math.sin(p.life/10)*devicePixelRatio;cx.beginPath();cx.ellipse(0,0,p.w,p.h*.6,0,0,6.3);cx.fill()}else cx.fillRect(-p.w/2,-p.h/2,p.w,p.h);cx.restore();
+    });
+    if(parts.length)requestAnimationFrame(tick);else{running=false;cx.clearRect(0,0,cv.width,cv.height)}
+  }
+  function later(f,t){timers.push(setTimeout(f,t))}
+  function go(){if(!running){running=true;requestAnimationFrame(tick)}}
+  function glow(){var g=document.createElement('div');g.className='glow go';document.body.appendChild(g);setTimeout(function(){g.remove()},1500)}
+  function fireworks(n){var d=devicePixelRatio,cols=['#ff5d8a','#ffd166','#ffffff','#ff9ec0','#ffb347'];for(var k=0;k<n;k++)(function(k){later(function(){var X=cv.width*(.2+Math.random()*.6),Y=cv.height*(.15+Math.random()*.3),c=cols[k%cols.length];for(var i=0;i<60;i++){var a=i/60*6.283,s=(2+Math.random()*4)*d;parts.push({t:'s',x:X,y:Y,vx:Math.cos(a)*s,vy:Math.sin(a)*s,g:.05*d,w:(4+Math.random()*4)*d,h:1,r:0,vr:0,c:c,life:70+Math.random()*30})}go()},k*450)})(k)}
+  function petals(){var d=devicePixelRatio,cols=['#ffb3cb','#ff8fb1','#ffd3e0','#ff6f9c'];for(var i=0;i<45;i++)parts.push({t:'p',x:Math.random()*cv.width,y:-Math.random()*cv.height*.4,vx:(Math.random()*2-1)*d,vy:(1+Math.random()*1.5)*d,g:.004*d,w:(5+Math.random()*5)*d,h:(5+Math.random()*5)*d,r:Math.random()*6,vr:Math.random()*.1-.05,c:cols[i%4],life:460+Math.random()*120});go()}
+  for(var q=0;q<26;q++){var st=document.createElement('i');st.className='star';st.style.cssText='left:'+Math.random()*100+'vw;top:'+Math.random()*100+'vh;--s:'+(2+Math.random()*3)+'px;--d:'+(2+Math.random()*3)+'s;animation-delay:'+Math.random()*3+'s';document.body.appendChild(st)}
+  var lastSp=0;addEventListener('pointermove',function(e){var n=Date.now();if(n-lastSp<60)return;lastSp=n;var s=document.createElement('span');s.className='sp';s.textContent=['✨','💖','✦'][Math.floor(Math.random()*3)];s.style.left=e.clientX+'px';s.style.top=e.clientY+'px';s.style.setProperty('--x',(Math.random()*40-20)+'px');s.style.setProperty('--y',(Math.random()*40+10)+'px');document.body.appendChild(s);setTimeout(function(){s.remove()},900)});
+
+  function openEnv(){
+    if(opened)return;opened=true;
+    env.classList.add('open');hint.classList.add('gone');
+    later(function(){env.classList.add('flapback')},350);
+    later(function(){env.classList.add('rise')},750);
+    later(function(){glow();burst();env.classList.add('gone');card.classList.add('show')},1700);
+    later(function(){fireworks(4)},2200);later(petals,2500);
+    for(var i=0;i<8;i++)later(spawnHeart,1700+i*120);
+  }
+  function reset(){
+    timers.forEach(clearTimeout);timers=[];opened=false;
+    card.classList.remove('show');
+    env.classList.remove('open','rise','flapback','gone');hint.classList.remove('gone');
+    card.scrollTop=0;
+  }
+  env.addEventListener('click',openEnv);
+  env.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();openEnv()}});
+  document.getElementById('replay').addEventListener('click',reset);
+  (function(){
+  var C={red:['#8f0f33','#e6335f','#ff8aa5'],pink:['#c92a6a','#ff6fa0','#ffc2d6'],yellow:['#d68a00','#ffc23d','#ffe9a0'],coral:['#c93f1d','#ff7a50','#ffc1a3'],peach:['#e58aa5','#ffc4d3','#fff4f7'],purple:['#6f3aa8','#b07be0','#e6cffa'],lite:['#e56a95','#ffa5c3','#ffe0ea']};
+  var R=[[150,44,.92,'pink'],[100,66,.9,'red'],[200,66,.9,'lite'],[58,100,.86,'peach'],[150,98,1,'red'],[242,100,.86,'pink'],[45,148,.74,'lite'],[110,140,.9,'peach'],[190,140,.9,'pink'],[255,148,.74,'red']];
+  var B=[];
+  var L=[[150,210,48,128],[150,210,252,128],[150,210,28,178],[150,210,272,178],[150,210,84,58],[150,210,216,58]];
+  var P='M0 2 C-26 0 -34 -24 -16 -38 C-8 -44 8 -44 16 -38 C34 -24 26 0 0 2Z';
+  var h='<svg class="sway" viewBox="0 0 300 330" style="width:100%;height:auto" aria-hidden="true"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2f8a4d"/><stop offset="1" stop-color="#78d894"/></linearGradient>';
+  R.forEach(function(r,i){var c=C[r[3]];h+='<linearGradient id="rg'+i+'" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="'+c[0]+'"/><stop offset=".5" stop-color="'+c[1]+'"/><stop offset="1" stop-color="'+c[2]+'"/></linearGradient>'});
+  h+='</defs>';
+  B.forEach(function(b){h+='<path class="stem" pathLength="1" style="stroke:#7bc79a;stroke-width:1.8" d="M150 212 Q'+((150+b[0])/2)+' '+((212+b[1])/2)+' '+b[0]+' '+(b[1]+6)+'"/>'});
+  R.forEach(function(r){h+='<path class="stem" pathLength="1" d="M150 212 Q'+((150+r[0])/2)+' '+((212+r[1])/2+10)+' '+r[0]+' '+(r[1]+8)+'"/>'});
+  L.forEach(function(l){
+    var dx=l[2]-l[0],dy=l[3]-l[1],mx=l[0]+dx/2,my=l[1]+dy/2,px=-dy*.28,py=dx*.28;
+    h+='<g class="leaf lf1" style="transform-origin:50% 50%"><path fill="url(#lg)" d="M'+l[0]+' '+l[1]+' Q'+(mx+px)+' '+(my+py)+' '+l[2]+' '+l[3]+' Q'+(mx-px)+' '+(my-py)+' '+l[0]+' '+l[1]+'Z"/><path d="M'+l[0]+' '+l[1]+' L'+l[2]+' '+l[3]+'" stroke="#2a7a45" stroke-width="1.2" fill="none" opacity=".55"/></g>';
+  });
+  B.forEach(function(b,k){[[0,0],[6,-4],[-6,-3],[4,6],[-5,6],[0,-9]].forEach(function(o,m){h+='<circle class="dot" style="animation-delay:'+(2+k*.08+m*.04)+'s" cx="'+(b[0]+o[0])+'" cy="'+(b[1]+o[1])+'" r="3"/>'})});
+  var layer=function(g,n,rot,sc,del){var t='<g class="rl" style="animation-delay:'+del+'s">';for(var j=0;j<n;j++)t+='<path d="'+P+'" fill="'+g+'" stroke="rgba(90,10,40,.28)" stroke-width=".9" transform="rotate('+(rot+j*360/n)+') scale('+sc+')"/>';return t+'</g>'};
+  R.forEach(function(r,i){
+    var d=1.2+i*.14,g='url(#rg'+i+')';
+    h+='<g transform="translate('+r[0]+' '+r[1]+') scale('+r[2]+')">'+layer(g,6,0,1,d)+layer(g,5,30,.74,d+.2)+layer(g,4,15,.5,d+.4);
+    h+='<g class="rl" style="animation-delay:'+(d+.6)+'s"><circle r="5" fill="'+g+'" stroke="rgba(90,10,40,.35)" stroke-width=".8"/><path d="M-3 1 C-4 -5 4 -5 4 0 C4 4 -1 4 -1 1" fill="none" stroke="rgba(90,10,40,.45)" stroke-width="1"/></g></g>';
+  });
+  h+='<g class="wrap" style="transform-box:fill-box;transform-origin:50% 100%"><path d="M58 184 L150 206 L136 314 Z" fill="#ff5f93"/><path d="M242 184 L150 206 L164 314 Z" fill="#ff8db4"/><path d="M58 184 L150 206 L242 184 L150 192 Z" fill="#ffd9e6"/><path d="M150 206 L150 314" stroke="#fff" stroke-opacity=".35" stroke-width="1.5"/><path d="M104 196 L142 312 M196 196 L158 312" stroke="#fff" stroke-opacity=".22" stroke-width="1.2"/><path d="M100 250 Q150 268 200 250 L198 262 Q150 280 102 262 Z" fill="#ffc94d"/></g>';
+  h+='<g class="wrap" style="transform-box:fill-box;transform-origin:50% 40%;animation-delay:1.4s"><path d="M150 262 C118 236 96 262 116 278 C130 286 146 272 150 262Z" fill="#ffcf4d" stroke="#d99a00" stroke-width="1"/><path d="M150 262 C182 236 204 262 184 278 C170 286 154 272 150 262Z" fill="#ffcf4d" stroke="#d99a00" stroke-width="1"/><path d="M150 264 L132 304 L146 297 L150 312Z" fill="#ffc021" stroke="#d99a00" stroke-width="1"/><path d="M150 264 L168 304 L154 297 L150 312Z" fill="#ffc021" stroke="#d99a00" stroke-width="1"/><circle cx="150" cy="263" r="6.5" fill="#e6a800"/></g></svg>';
+  document.getElementById('bq').innerHTML=h;
+})();
+  var gift=document.getElementById('gift');
+  document.getElementById('giftbtn').addEventListener('click',function(){
+    card.classList.remove('show');
+    later(function(){gift.classList.add('show');glow()},600);
+    later(burst,1500);later(petals,2200);later(function(){fireworks(3)},3400);
+  });
+  document.getElementById('gshare').addEventListener('click',function(){document.getElementById('share').click()});
+  document.getElementById('greplay').addEventListener('click',function(){gift.classList.remove('show');gift.scrollTop=0;reset()});
+
+  document.getElementById('share').addEventListener('click',function(){
+    var data={title:'Gửi Bé Thỏ 💌',text:'Có một bất ngờ 20/10 dành cho em, mở phong bì ra nhé 💌',url:location.href};
+    function copy(){
+      try{navigator.clipboard.writeText(location.href).then(function(){toast('Đã sao chép liên kết 💌')},function(){toast('Hãy copy liên kết trên thanh địa chỉ nhé')})}
+      catch(e){toast('Hãy copy liên kết trên thanh địa chỉ nhé')}
+    }
+    if(navigator.share){navigator.share(data).catch(function(){})}else copy();
+  });
+})();
+</script>
+</body>
+</html>
